@@ -1,0 +1,23 @@
+{
+    "name": "obsidian",
+    "displayName": "Obsidian Excavator",
+    "craftingMaterial": "ingotObsidian",
+    "breakarea": {
+      "height": 3,
+      "width": 3
+    },
+    "color": {
+      "red": 235,
+      "green": 152,
+      "blue": 134
+    },
+    "tier": 2,
+    "harvestLevel": 3,
+    "durability": 6000,
+    "efficiency": 4.0,
+    "damage": 10.0,
+    "attackspeed": -3.5,
+    "enchantability": 8,
+    "enchantable": true,
+    "repairable": true
+  }

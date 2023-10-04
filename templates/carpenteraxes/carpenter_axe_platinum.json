@@ -1,0 +1,23 @@
+{
+    "name": "platinum",
+    "displayName": "Platinum Carpenter Axe",
+    "craftingMaterial": "ingotPlatinum",
+    "breakarea": {
+      "height": 3,
+      "width": 3
+    },
+    "color": {
+      "red": 235,
+      "green": 152,
+      "blue": 134
+    },
+    "tier": 3,
+    "harvestLevel": 3,
+    "durability": 2800,
+    "efficiency": 8.1,
+    "damage": 9.0,
+    "attackspeed": -3.0,
+    "enchantability": 16,
+    "enchantable": true,
+    "repairable": true
+  }

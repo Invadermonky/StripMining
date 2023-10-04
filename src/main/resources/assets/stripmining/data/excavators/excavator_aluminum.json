@@ -3,8 +3,8 @@
   "displayName": "Aluminum Excavator",
   "craftingMaterial": "ingotAluminum",
   "breakarea": {
-    "height": 2,
-    "width": 1
+    "height": 3,
+    "width": 3
   },
   "color": {
     "red": 235,

@@ -1,0 +1,23 @@
+{
+    "name": "emerald",
+    "displayName": "Emerald Excavator",
+    "craftingMaterial": "ingotEmerald",
+    "breakarea": {
+      "height": 3,
+      "width": 3
+    },
+    "color": {
+      "red": 235,
+      "green": 152,
+      "blue": 134
+    },
+    "tier": 3,
+    "harvestLevel": 3,
+    "durability": 2500,
+    "efficiency": 7.8,
+    "damage": 5.5,
+    "attackspeed": -3.0,
+    "enchantability": 18,
+    "enchantable": true,
+    "repairable": true
+  }

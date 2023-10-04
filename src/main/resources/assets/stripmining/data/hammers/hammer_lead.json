@@ -3,8 +3,8 @@
   "displayName": "Lead Hammer",
   "craftingMaterial": "ingotLead",
   "breakarea": {
-    "height": 2,
-    "width": 1
+    "height": 3,
+    "width": 3
   },
   "color": {
     "red": 94,

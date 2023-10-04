@@ -1,0 +1,23 @@
+{
+    "name": "quartz",
+    "displayName": "Quartz Carpenter Axe",
+    "craftingMaterial": "ingotQuartz",
+    "breakarea": {
+      "height": 3,
+      "width": 3
+    },
+    "color": {
+      "red": 235,
+      "green": 152,
+      "blue": 134
+    },
+    "tier": 2,
+    "harvestLevel": 2,
+    "durability": 450,
+    "efficiency": 6.1,
+    "damage": 9.0,
+    "attackspeed": -3.0,
+    "enchantability": 16,
+    "enchantable": true,
+    "repairable": true
+  }

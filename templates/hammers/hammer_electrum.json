@@ -1,0 +1,23 @@
+{
+    "name": "electrum",
+    "displayName": "Electrum Excavator",
+    "craftingMaterial": "ingotElectrum",
+    "breakarea": {
+      "height": 3,
+      "width": 3
+    },
+    "color": {
+      "red": 235,
+      "green": 152,
+      "blue": 134
+    },
+    "tier": 3,
+    "harvestLevel": 0,
+    "durability": 200,
+    "efficiency": 12.8,
+    "damage": 6.0,
+    "attackspeed": -3.0,
+    "enchantability": 30,
+    "enchantable": true,
+    "repairable": true
+  }
