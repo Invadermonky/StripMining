@@ -1,0 +1,23 @@
+{
+  "name": "iron",
+  "displayName": "Iron Hammer",
+  "craftingMaterial": "ingotIron",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 216,
+    "green": 216,
+    "blue": 216
+  },
+  "tier": 2,
+  "harvestLevel": 2,
+  "durability": 500,
+  "efficiency": 5.4,
+  "damage": 8.0,
+  "attackspeed": -3.3,
+  "enchantability": 14,
+  "enchantable": true,
+  "repairable": true
+}

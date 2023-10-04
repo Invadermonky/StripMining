@@ -1,0 +1,23 @@
+{
+  "name": "gold",
+  "displayName": "Golden Hammer",
+  "craftingMaterial": "ingotGold",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 255,
+    "green": 255,
+    "blue": 11
+  },
+  "tier": 3,
+  "harvestLevel": 1,
+  "durability": 66,
+  "efficiency": 10.8,
+  "damage": 8.0,
+  "attackspeed": -3.3,
+  "enchantability": 25,
+  "enchantable": true,
+  "repairable": true
+}

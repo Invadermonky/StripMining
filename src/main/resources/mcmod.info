@@ -1,0 +1,16 @@
+[
+{
+  "modid": "stripmining",
+  "name": "Strip Mining",
+  "description": "Dynamically created AoE mining and digging tools.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Invadermonky"],
+  "credits": "",
+  "logoFile": "assets/stripmining/textures/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

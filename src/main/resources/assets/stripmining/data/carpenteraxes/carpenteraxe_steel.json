@@ -1,0 +1,23 @@
+{
+  "name": "steel",
+  "displayName": "Steel Carpenter Axe",
+  "craftingMaterial": "ingotSteel",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 150,
+    "green": 150,
+    "blue": 150
+  },
+  "tier": 2,
+  "harvestLevel": 3,
+  "durability": 2400,
+  "efficiency": 6.5,
+  "damage": 10.0,
+  "attackspeed": -3.2,
+  "enchantability": 10,
+  "enchantable": true,
+  "repairable": true
+}

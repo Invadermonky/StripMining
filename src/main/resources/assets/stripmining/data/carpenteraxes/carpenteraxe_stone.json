@@ -1,0 +1,22 @@
+{
+  "name": "stone",
+  "displayName": "Stone Carpenter Axe",
+  "craftingMaterial": "cobblestone",
+  "breakarea": {
+    "height": 2,
+    "width": 1
+  },
+  "color": {
+    "red": 113,
+    "green": 113,
+    "blue": 113
+  },
+  "harvestLevel": 1,
+  "durability": 262,
+  "efficiency": 3.6,
+  "damage": 6.0,
+  "attackspeed": -3.5,
+  "enchantability": 5,
+  "enchantable": true,
+  "repairable": true
+}

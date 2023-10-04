@@ -1,0 +1,23 @@
+{
+  "name": "bronze",
+  "displayName": "Bronze Carpenter Axe",
+  "craftingMaterial": "ingotBronze",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 237,
+    "green": 174,
+    "blue": 102
+  },
+  "tier": 2,
+  "harvestLevel": 2,
+  "durability": 850,
+  "efficiency": 5.8,
+  "damage": 9.0,
+  "attackspeed": -3.3,
+  "enchantability": 10,
+  "enchantable": true,
+  "repairable": true
+}

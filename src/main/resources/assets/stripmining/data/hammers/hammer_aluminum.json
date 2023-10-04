@@ -1,0 +1,23 @@
+{
+  "name": "aluminum",
+  "displayName": "Aluminum Hammer",
+  "craftingMaterial": "ingotAluminum",
+  "breakarea": {
+    "height": 2,
+    "width": 1
+  },
+  "color": {
+    "red": 235,
+    "green": 152,
+    "blue": 134
+  },
+  "tier": 1,
+  "harvestLevel": 1,
+  "durability": 250,
+  "efficiency": 10,
+  "damage": 7.0,
+  "attackspeed": -3.4,
+  "enchantability": 14,
+  "enchantable": true,
+  "repairable": true
+}

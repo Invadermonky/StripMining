@@ -1,0 +1,11 @@
+#Localization for Strip Mining version 1.0.x
+#Items
+
+#Tooltips
+tooltip.stripmining:breakarea_carpenteraxe=Harvest Area: %s
+tooltip.stripmining:breakarea_excavator=Dig Area: %s
+tooltip.stripmining:breakarea_hammer=Mining Area: %s
+
+tooltip.stripmining:breakarea=%dx%d
+tooltip.stripmining:breakarea_height=Height: %d
+tooltip.stripmining:breakarea_width=Width: %d

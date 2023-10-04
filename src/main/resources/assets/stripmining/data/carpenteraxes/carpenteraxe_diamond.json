@@ -1,0 +1,22 @@
+{
+  "name": "diamond",
+  "displayName": "Diamond Carpenter Axe",
+  "craftingMaterial": "gemDiamond",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 44,
+    "green": 205,
+    "blue": 177
+  },
+  "harvestLevel": 3,
+  "durability": 3122,
+  "efficiency": 7.2,
+  "damage": 10.0,
+  "attackspeed": -3.2,
+  "enchantability": 22,
+  "enchantable": true,
+  "repairable": true
+}

@@ -1,0 +1,23 @@
+{
+  "name": "tin",
+  "displayName": "Tin Excavator",
+  "craftingMaterial": "ingotTin",
+  "breakarea": {
+    "height": 2,
+    "width": 1
+  },
+  "color": {
+    "red": 228,
+    "green": 235,
+    "blue": 231
+  },
+  "tier": 2,
+  "harvestLevel": 1,
+  "durability": 300,
+  "efficiency": 4.5,
+  "damage": 7.0,
+  "attackspeed": -3.4,
+  "enchantability": 7,
+  "enchantable": true,
+  "repairable": true
+}

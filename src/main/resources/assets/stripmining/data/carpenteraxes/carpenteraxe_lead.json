@@ -1,0 +1,23 @@
+{
+  "name": "lead",
+  "displayName": "Lead Carpenter Axe",
+  "craftingMaterial": "ingotLead",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 94,
+    "green": 100,
+    "blue": 121
+  },
+  "tier": 1,
+  "harvestLevel": 1,
+  "durability": 200,
+  "efficiency": 5.0,
+  "damage": 7.0,
+  "attackspeed": -3.4,
+  "enchantability": 9,
+  "enchantable": true,
+  "repairable": true
+}

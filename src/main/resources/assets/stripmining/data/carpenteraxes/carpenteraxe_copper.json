@@ -1,0 +1,23 @@
+{
+  "name": "copper",
+  "displayName": "Copper Carpenter Axe",
+  "craftingMaterial": "ingotCopper",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 180,
+    "green": 117,
+    "blue": 88
+  },
+  "tier": 1,
+  "harvestLevel": 1,
+  "durability": 350,
+  "efficiency": 4.0,
+  "damage": 7.0,
+  "attackspeed": -3.4,
+  "enchantability": 16,
+  "enchantable": true,
+  "repairable": true
+}
