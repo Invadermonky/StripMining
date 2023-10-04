@@ -27,7 +27,7 @@ public class ConfigHandler {
 
         enableExcavators = config.getBoolean("enableExcavators", Configuration.CATEGORY_GENERAL, enableExcavators, "Enable area digging tools.");
         enableHammers = config.getBoolean("enableHammers", Configuration.CATEGORY_GENERAL, enableHammers, "Enable area mining tools.");
-        enableCarpenterAxes = config.getBoolean("enableCarpenterAxes", Configuration.CATEGORY_GENERAL, enableCarpenterAxes, "Enable full tree harvesting tools.");
+        enableCarpenterAxes = config.getBoolean("enableCarpenterAxes", Configuration.CATEGORY_GENERAL, enableCarpenterAxes, "Enable area wood chopping tools.");
         generateRecipes = config.getBoolean("generateRecipes", Configuration.CATEGORY_GENERAL, generateRecipes, "Generate default recipes for tools.");
         loadDefaults = config.getBoolean("loadDefaults", Configuration.CATEGORY_GENERAL, loadDefaults,  "Loads all default tool json files. This config option will default to \"false\" after load is complete.\n\tWARNING: This option will delete and reload all tool config files. Be sure to backup any files you wish to save.");
         enableDebug = config.getBoolean("robustLogging", Configuration.CATEGORY_GENERAL, enableDebug, "Enables robust logging. Used to debug tool json files.");
