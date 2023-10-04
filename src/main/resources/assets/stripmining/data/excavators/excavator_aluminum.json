@@ -15,8 +15,8 @@
   "harvestLevel": 1,
   "durability": 250,
   "efficiency": 10,
-  "damage": 7.0,
-  "attackspeed": -3.4,
+  "damage": 4.5,
+  "attackspeed": -3.1,
   "enchantability": 14,
   "enchantable": true,
   "repairable": true

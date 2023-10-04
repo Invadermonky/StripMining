@@ -26,36 +26,36 @@ public class ToolStatsBase {
     public Color color;
 
     /** The tool tier. Determines the appearance of the tool. Valid values are 1, 2, or 3. */
-    public int tier = ToolStatsDefaults.TIER;
+    public int tier;
 
     /** The tool harvest level. Used to create the custom tool material. */
-    public int harvestLevel = ToolStatsDefaults.HARVEST_LEVEL;
+    public int harvestLevel;
 
     /**
      * The tool durability. Used to create the custom tool material and determines the number
      * of uses before the tool breaks.
      */
-    public int durability = ToolStatsDefaults.DURABILITY;
+    public int durability;
     /** The effective break speed of the tool. Used to create the custom tool material. */
-    public float efficiency = ToolStatsDefaults.EFFICIENCY;
+    public float efficiency;
 
     /**
      * The attack damage of the tool. Used to create the custom tool material and determines the
      * attack damage of the tool.
      */
-    public float damage = ToolStatsDefaults.DAMAGE;
+    public float damage;
 
     /** The attack speed of the tool. Attack speeds of -3.6F will attack every second. */
-    public float attackspeed = ToolStatsDefaults.ATTACK_SPEED;
+    public float attackspeed;
 
     /** The enchantability of the tool. Used to create the custom tool material. */
-    public int enchantability = ToolStatsDefaults.ENCHANTABILITY;
+    public int enchantability;
 
     /** Determines whether the tool can be enchanted. */
-    public boolean isEnchantable = ToolStatsDefaults.ENCHANTABLE;
+    public boolean isEnchantable;
 
     /** Determines whether the tool can be repaired. */
-    public boolean isRepairable = ToolStatsDefaults.REPAIRABLE;
+    public boolean isRepairable;
 
     //Template Color controls
     /** Used to control the dark border on the template. (RED template pixels) */

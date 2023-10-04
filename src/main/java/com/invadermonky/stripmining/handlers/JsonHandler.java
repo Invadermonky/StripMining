@@ -45,7 +45,15 @@ public class JsonHandler {
             //Reading required property "color"
             stats.color = getBaseColorProperty();
 
-            getBaseToolStats(stats);
+            stats.harvestLevel = getIntProperty("harvestLevel", ExcavatorStatsDefaults.HARVEST_LEVEL);
+            stats.durability = getIntProperty("durability", ExcavatorStatsDefaults.DURABILITY);
+            stats.efficiency = getFloatProperty("efficiency", ExcavatorStatsDefaults.EFFICIENCY);
+            stats.damage = getFloatProperty("damage", ExcavatorStatsDefaults.DAMAGE);
+            stats.attackspeed = getFloatProperty("attackspeed", ExcavatorStatsDefaults.ATTACK_SPEED);
+            stats.enchantability = getIntProperty("enchantability", ExcavatorStatsDefaults.ENCHANTABILITY);
+            stats.isEnchantable = getBooleanProperty("enchantable", ExcavatorStatsDefaults.ENCHANTABLE);
+            stats.isRepairable = getBooleanProperty("repairable", ExcavatorStatsDefaults.REPAIRABLE);
+
             getTemplateColors(stats);
 
             return stats;
@@ -86,7 +94,15 @@ public class JsonHandler {
             //Reading required property "color"
             stats.color = getBaseColorProperty();
 
-            getBaseToolStats(stats);
+            stats.harvestLevel = getIntProperty("harvestLevel", HammerStatsDefaults.HARVEST_LEVEL);
+            stats.durability = getIntProperty("durability", HammerStatsDefaults.DURABILITY);
+            stats.efficiency = getFloatProperty("efficiency", HammerStatsDefaults.EFFICIENCY);
+            stats.damage = getFloatProperty("damage", HammerStatsDefaults.DAMAGE);
+            stats.attackspeed = getFloatProperty("attackspeed", HammerStatsDefaults.ATTACK_SPEED);
+            stats.enchantability = getIntProperty("enchantability", HammerStatsDefaults.ENCHANTABILITY);
+            stats.isEnchantable = getBooleanProperty("enchantable", HammerStatsDefaults.ENCHANTABLE);
+            stats.isRepairable = getBooleanProperty("repairable", HammerStatsDefaults.REPAIRABLE);
+
             getTemplateColors(stats);
 
             return stats;
@@ -127,7 +143,15 @@ public class JsonHandler {
             //Reading required property "color"
             stats.color = getBaseColorProperty();
 
-            getBaseToolStats(stats);
+            stats.harvestLevel = getIntProperty("harvestLevel", CarpenterAxeStatsDefaults.HARVEST_LEVEL);
+            stats.durability = getIntProperty("durability", CarpenterAxeStatsDefaults.DURABILITY);
+            stats.efficiency = getFloatProperty("efficiency", CarpenterAxeStatsDefaults.EFFICIENCY);
+            stats.damage = getFloatProperty("damage", CarpenterAxeStatsDefaults.DAMAGE);
+            stats.attackspeed = getFloatProperty("attackspeed", CarpenterAxeStatsDefaults.ATTACK_SPEED);
+            stats.enchantability = getIntProperty("enchantability", CarpenterAxeStatsDefaults.ENCHANTABILITY);
+            stats.isEnchantable = getBooleanProperty("enchantable", CarpenterAxeStatsDefaults.ENCHANTABLE);
+            stats.isRepairable = getBooleanProperty("repairable", CarpenterAxeStatsDefaults.REPAIRABLE);
+
             getTemplateColors(stats);
 
             return stats;
@@ -139,27 +163,6 @@ public class JsonHandler {
         }
     }
 
-
-    /*
-        Json parsing for shared tool stats
-    */
-
-    /**
-     * Retrieves all optional tool stats properties and assigns default values if they are not found.
-     *
-     * @param baseStats The ToolStats class extending ToolStatsBase.
-     */
-    private static void getBaseToolStats(ToolStatsBase baseStats) {
-        //Optional tool properties.
-        baseStats.harvestLevel = getIntProperty("harvestLevel", ToolStatsDefaults.HARVEST_LEVEL);
-        baseStats.durability = getIntProperty("durability", ToolStatsDefaults.DURABILITY);
-        baseStats.efficiency = getFloatProperty("efficiency", ToolStatsDefaults.EFFICIENCY);
-        baseStats.damage = getFloatProperty("damage", ToolStatsDefaults.DAMAGE);
-        baseStats.attackspeed = getFloatProperty("attackspeed", ToolStatsDefaults.ATTACK_SPEED);
-        baseStats.enchantability = getIntProperty("enchantability", ToolStatsDefaults.ENCHANTABILITY);
-        baseStats.isEnchantable = getBooleanProperty("enchantable", ToolStatsDefaults.ENCHANTABLE);
-        baseStats.isRepairable = getBooleanProperty("repairable", ToolStatsDefaults.REPAIRABLE);
-    }
 
     /**
      * Gets the override template colors from the json file. This is only called if the templateColor property exists.
@@ -285,7 +288,7 @@ public class JsonHandler {
      * @return Integer value of 1, 2 or 3
      */
     private static int getTierProperty() throws NullPointerException, IllegalArgumentException {
-        int tier = ToolStatsDefaults.TIER;
+        int tier = 2;
         if(jsonObject.has("tier")) {
             tier = jsonObject.get("tier").getAsInt();
 
