@@ -1,15 +1,15 @@
 {
     "name": "nickel",
-    "displayName": "Nickel Excavator",
+    "displayName": "Nickel Hammer",
     "craftingMaterial": "ingotNickel",
     "breakarea": {
       "height": 3,
       "width": 3
     },
     "color": {
-      "red": 235,
-      "green": 152,
-      "blue": 134
+      "red": 205,
+      "green": 217,
+      "blue": 182
     },
     "tier": 2,
     "harvestLevel": 2,

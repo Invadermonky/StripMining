@@ -1,15 +1,15 @@
 {
     "name": "constantan",
-    "displayName": "Constantan Excavator",
+    "displayName": "Constantan Hammer",
     "craftingMaterial": "ingotConstantan",
     "breakarea": {
       "height": 3,
       "width": 3
     },
     "color": {
-      "red": 235,
-      "green": 152,
-      "blue": 134
+      "red": 240,
+      "green": 129,
+      "blue": 106
     },
     "tier": 2,
     "harvestLevel": 2,

@@ -1,15 +1,15 @@
 {
     "name": "brass",
-    "displayName": "Brass Excavator",
+    "displayName": "Brass Hammer",
     "craftingMaterial": "ingotBrass",
     "breakarea": {
       "height": 3,
       "width": 3
     },
     "color": {
-      "red": 235,
-      "green": 152,
-      "blue": 134
+      "red": 225,
+      "green": 188,
+      "blue": 128
     },
     "tier": 2,
     "harvestLevel": 2,

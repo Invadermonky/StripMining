@@ -1,6 +1,6 @@
 {
     "name": "netherite",
-    "displayName": "Netherite Excavator",
+    "displayName": "Netherite Hammer",
     "craftingMaterial": "ingotNetherite",
     "breakarea": {
       "height": 3,
@@ -8,8 +8,8 @@
     },
     "color": {
       "red": 235,
-      "green": 152,
-      "blue": 134
+      "green": 231,
+      "blue": 226
     },
     "tier": 3,
     "harvestLevel": 3,
