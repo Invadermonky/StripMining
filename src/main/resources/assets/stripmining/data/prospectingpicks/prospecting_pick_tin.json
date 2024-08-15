@@ -1,0 +1,21 @@
+{
+  "name": "tin",
+  "displayName": "Tin Prospecting Pick",
+  "craftingMaterial": "ingotTin",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 228,
+    "green": 235,
+    "blue": 231
+  },
+  "harvestLevel": 1,
+  "durability": 150,
+  "efficiency": 3.5,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 7,
+  "enchantable": true,
+  "repairable": true
+}

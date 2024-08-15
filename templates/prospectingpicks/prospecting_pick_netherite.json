@@ -1,0 +1,21 @@
+{
+  "name": "netherite",
+  "displayName": "Netherite Prospecting Pick",
+  "craftingMaterial": "ingotNetherite",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 235,
+    "green": 231,
+    "blue": 226
+  },
+  "harvestLevel": 3,
+  "durability": 2031,
+  "efficiency": 7.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 15,
+  "enchantable": true,
+  "repairable": true
+}

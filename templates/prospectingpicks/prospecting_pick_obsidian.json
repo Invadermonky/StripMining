@@ -1,0 +1,21 @@
+{
+  "name": "obsidian",
+  "displayName": "Obsidian Prospecting Pick",
+  "craftingMaterial": "ingotObsidian",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 60,
+    "green": 48,
+    "blue": 86
+  },
+  "harvestLevel": 3,
+  "durability": 3000,
+  "efficiency": 3.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 8,
+  "enchantable": true,
+  "repairable": true
+}

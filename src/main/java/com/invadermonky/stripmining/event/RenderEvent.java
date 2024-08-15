@@ -28,7 +28,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 @SideOnly(Side.CLIENT)
@@ -38,50 +37,42 @@ public class RenderEvent {
 
     @SubscribeEvent (priority = EventPriority.LOW)
     public void renderExtraBlockBreak(RenderWorldLastEvent event) {
-        try {
-            PlayerControllerMP controllerMP = Minecraft.getMinecraft().playerController;
+        PlayerControllerMP controllerMP = Minecraft.getMinecraft().playerController;
 
-            if (controllerMP == null) {
+        if (controllerMP == null) {
+            return;
+        }
+        EntityPlayer player = Minecraft.getMinecraft().player;
+        ItemStack stack = player.getHeldItemMainhand();
+
+        if (!stack.isEmpty() && stack.getItem() instanceof IAreaBrealToolSM) {
+            Entity renderEntity = Minecraft.getMinecraft().getRenderViewEntity();
+            if (renderEntity == null)
                 return;
-            }
-            EntityPlayer player = Minecraft.getMinecraft().player;
-            ItemStack stack = player.getHeldItemMainhand();
 
+            IAreaBrealToolSM aoeTool = (IAreaBrealToolSM) stack.getItem();
+
+            double distance = Math.max(controllerMP.getBlockReachDistance(), aoeTool.getReachDistance(stack));
+            RayTraceResult traceResult = renderEntity.rayTrace(distance, event.getPartialTicks());
+
+            if (traceResult != null) {
+                ImmutableList<BlockPos> extraBlocks = aoeTool.getAreaBreakBlocks(stack, traceResult.getBlockPos(), player);
+                for (BlockPos pos : extraBlocks) {
+                    event.getContext().drawSelectionBox(player, new RayTraceResult(new Vec3d(0, 0, 0), null, pos), 0, event.getPartialTicks());
+                }
+            }
+        }
+
+        if (controllerMP.getIsHittingBlock()) {
             if (!stack.isEmpty() && stack.getItem() instanceof IAreaBrealToolSM) {
-                Entity renderEntity = Minecraft.getMinecraft().getRenderViewEntity();
-                if (renderEntity == null)
-                    return;
-
+                BlockPos pos = controllerMP.currentBlock;
                 IAreaBrealToolSM aoeTool = (IAreaBrealToolSM) stack.getItem();
-
-                double distance = Math.max(controllerMP.getBlockReachDistance(), aoeTool.getReachDistance(stack));
-                RayTraceResult traceResult = renderEntity.rayTrace(distance, event.getPartialTicks());
-
-                if (traceResult != null) {
-                    ImmutableList<BlockPos> extraBlocks = aoeTool.getAreaBreakBlocks(stack, traceResult.getBlockPos(), player);
-                    for (BlockPos pos : extraBlocks) {
-                        event.getContext().drawSelectionBox(player, new RayTraceResult(new Vec3d(0, 0, 0), null, pos), 0, event.getPartialTicks());
-                    }
-                }
+                drawBlockDamageTexture(Tessellator.getInstance(), Tessellator.getInstance().getBuffer(), player, event.getPartialTicks(), player.getEntityWorld(), aoeTool.getAreaBreakBlocks(stack, pos, player));
             }
-
-            if (controllerMP.getIsHittingBlock()) {
-                if (!stack.isEmpty() && stack.getItem() instanceof IAreaBrealToolSM) {
-                    Field field = controllerMP.getClass().getDeclaredField("currentBlock");
-                    field.setAccessible(true);
-                    BlockPos pos = (BlockPos) field.get(controllerMP);
-
-                    IAreaBrealToolSM aoeTool = (IAreaBrealToolSM) stack.getItem();
-                    drawBlockDamageTexture(Tessellator.getInstance(), Tessellator.getInstance().getBuffer(), player, event.getPartialTicks(), player.getEntityWorld(), aoeTool.getAreaBreakBlocks(stack, pos, player));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public void drawBlockDamageTexture(Tessellator tessellatorIn, BufferBuilder bufferIn, Entity entityIn, float partialTicks, World world, List<BlockPos> blocks) throws
-            Exception {
+    public void drawBlockDamageTexture(Tessellator tessellatorIn, BufferBuilder bufferIn, Entity entityIn, float partialTicks, World world, List<BlockPos> blocks) {
         double d0 = entityIn.lastTickPosX + (entityIn.posX - entityIn.lastTickPosX) * (double) partialTicks;
         double d1 = entityIn.lastTickPosY + (entityIn.posY - entityIn.lastTickPosY) * (double) partialTicks;
         double d2 = entityIn.lastTickPosZ + (entityIn.posZ - entityIn.lastTickPosZ) * (double) partialTicks;
@@ -89,10 +80,7 @@ public class RenderEvent {
         TextureManager renderEngine = Minecraft.getMinecraft().renderEngine;
 
         PlayerControllerMP controllerMP = Minecraft.getMinecraft().playerController;
-        Field field = controllerMP.getClass().getDeclaredField("curBlockDamageMP");
-        field.setAccessible(true);
-
-        int progress = (int) ((float) field.get(controllerMP) * 10.0F) - 1;
+        int progress = (int) (controllerMP.curBlockDamageMP * 10.0F) - 1;
 
         if (progress < 0)
             return;

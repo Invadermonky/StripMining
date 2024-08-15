@@ -1,6 +1,7 @@
 package com.invadermonky.stripmining.util;
 
 import com.invadermonky.stripmining.StripMining;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.util.text.TextComponentTranslation;
 
 public class StringHelper {
@@ -48,5 +49,13 @@ public class StringHelper {
         if (type == null || type.equals(""))
             return new TextComponentTranslation(String.format(modId.toLowerCase() + ":" + unlocalizedStr, parameters)).getFormattedText();
         return new TextComponentTranslation(String.format(String.format("%s.%s:%s", type, modId.toLowerCase(), unlocalizedStr), parameters)).getFormattedText();
+    }
+
+    public static String[] localizeAll(String[] input) {
+        String[] ret = new String[input.length];
+        for(int i = 0; i < input.length; i++) {
+            ret[i] = I18n.format(input[i]);
+        }
+        return ret;
     }
 }

@@ -104,8 +104,11 @@ dependencies {
     }
 
     // Example of deobfuscating a dependency
-    // implementation rfg.deobf('curse.maven:had-enough-items-557549:4543375')
-
+    implementation rfg.deobf("curse.maven:had-enough-items-557549:4543375")
+    implementation rfg.deobf("curse.maven:game-stages-268655:2951840")
+    implementation rfg.deobf("curse.maven:ore-stages-290201:2632997")
+    implementation rfg.deobf("curse.maven:item-stages-280316:2696766")
+    implementation rfg.deobf("curse.maven:bookshelf-228525:2836960")
 
     if (project.use_mixins.toBoolean()) {
         // Change your mixin refmap name here:

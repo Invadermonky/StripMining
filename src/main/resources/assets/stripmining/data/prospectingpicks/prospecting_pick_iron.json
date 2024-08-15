@@ -1,0 +1,21 @@
+{
+  "name": "iron",
+  "displayName": "Iron Prospecting Pick",
+  "craftingMaterial": "ingotIron",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 216,
+    "green": 216,
+    "blue": 216
+  },
+  "harvestLevel": 2,
+  "durability": 250,
+  "efficiency": 5.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 14,
+  "enchantable": true,
+  "repairable": true
+}

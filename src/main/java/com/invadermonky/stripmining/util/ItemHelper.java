@@ -4,10 +4,14 @@ import com.invadermonky.stripmining.item.IItemToolSM;
 import com.invadermonky.stripmining.item.tools.ItemCarpenterAxe;
 import com.invadermonky.stripmining.item.tools.ItemExcavator;
 import com.invadermonky.stripmining.item.tools.ItemHammer;
+import com.invadermonky.stripmining.item.tools.ItemProspectingPick;
 import joptsimple.internal.Strings;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemHelper {
@@ -61,6 +65,10 @@ public class ItemHelper {
         return null;
     }
 
+    public static String getBlockDisplayName(World world, IBlockState state, BlockPos pos) {
+        return state.getBlock().getPickBlock(state, null, world, pos, null).getDisplayName();
+    }
+
     public static boolean isExcavator(ItemTool tool) {
         return tool instanceof ItemExcavator;
     }
@@ -73,10 +81,15 @@ public class ItemHelper {
         return tool instanceof ItemCarpenterAxe;
     }
 
+    public static boolean isProspectingPick(ItemTool tool) {
+        return tool instanceof ItemProspectingPick;
+    }
+
     public static String getItemTypeString(ItemTool tool) {
         if(isExcavator(tool)) return "excavator";
         else if(isHammer(tool)) return "hammer";
         else if(isCarpenterAxe(tool)) return "carpenteraxe";
+        else if(isProspectingPick(tool)) return "prospectingpick";
         else return "";
     }
 }

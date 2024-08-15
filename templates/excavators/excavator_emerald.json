@@ -1,7 +1,7 @@
 {
     "name": "emerald",
     "displayName": "Emerald Excavator",
-    "craftingMaterial": "ingotEmerald",
+    "craftingMaterial": "gemEmerald",
     "breakarea": {
       "height": 3,
       "width": 3

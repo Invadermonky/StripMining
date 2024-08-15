@@ -103,10 +103,10 @@ public class ItemCarpenterAxe extends ItemTool implements IItemToolSM, IAreaBrea
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if(GuiScreen.isShiftKeyDown()) {
             tooltip.add(I18n.format("tooltip.stripmining:breakarea_carpenteraxe", ""));
-            tooltip.add(" " + I18n.format("tooltip.stripmining:breakarea_height", this.stats.breakareaHeight));
-            tooltip.add(" " + I18n.format("tooltip.stripmining:breakarea_width", this.stats.breakareaWidth));
+            tooltip.add(" " + I18n.format("tooltip.stripmining:height", this.stats.breakareaHeight));
+            tooltip.add(" " + I18n.format("tooltip.stripmining:width", this.stats.breakareaWidth));
         } else {
-            tooltip.add(I18n.format("tooltip.stripmining:breakarea_carpenteraxe", I18n.format("tooltip.stripmining:breakarea", this.height, this.width)));
+            tooltip.add(I18n.format("tooltip.stripmining:breakarea_carpenteraxe", I18n.format("tooltip.stripmining:area", this.height, this.width)));
         }
     }
 

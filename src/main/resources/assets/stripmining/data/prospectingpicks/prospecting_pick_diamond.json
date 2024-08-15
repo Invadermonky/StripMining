@@ -1,0 +1,21 @@
+{
+  "name": "diamond",
+  "displayName": "Diamond Prospecting Pick",
+  "craftingMaterial": "gemDiamond",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 44,
+    "green": 205,
+    "blue": 177
+  },
+  "harvestLevel": 3,
+  "durability": 1561,
+  "efficiency": 6.2,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 22,
+  "enchantable": true,
+  "repairable": true
+}

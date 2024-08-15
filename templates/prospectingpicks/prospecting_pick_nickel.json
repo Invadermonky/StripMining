@@ -1,0 +1,21 @@
+{
+  "name": "nickel",
+  "displayName": "Nickel Prospecting Pick",
+  "craftingMaterial": "ingotNickel",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 205,
+    "green": 217,
+    "blue": 182
+  },
+  "harvestLevel": 2,
+  "durability": 300,
+  "efficiency": 5.5,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 18,
+  "enchantable": true,
+  "repairable": true
+}

@@ -4,6 +4,7 @@ import com.invadermonky.stripmining.handlers.ConfigHandler;
 import com.invadermonky.stripmining.item.tools.ItemCarpenterAxe;
 import com.invadermonky.stripmining.item.tools.ItemExcavator;
 import com.invadermonky.stripmining.item.tools.ItemHammer;
+import com.invadermonky.stripmining.item.tools.ItemProspectingPick;
 import com.invadermonky.stripmining.util.ItemHelper;
 import com.invadermonky.stripmining.util.LogHelper;
 import net.minecraft.item.ItemStack;
@@ -39,6 +40,8 @@ public class RecipeRegistrySM {
                 primer = getHammerPrimer((ItemHammer) tool);
             else if(ItemHelper.isCarpenterAxe(tool))
                 primer = getCarpenterAxePrimer((ItemCarpenterAxe) tool);
+            else if(ItemHelper.isProspectingPick(tool))
+                primer = getProspectingPickPrimer((ItemProspectingPick) tool);
 
             if(primer != null) {
                 ShapedRecipes recipe = new ShapedRecipes(output.getItem().getRegistryName().toString(), primer.width, primer.height, primer.input, output);
@@ -84,6 +87,18 @@ public class RecipeRegistrySM {
             ingot = tool.getCraftingStack().getItem();
 
         return CraftingHelper.parseShaped("III", "IR ", " R ", 'I', ingot, 'R', "stickWood");
+    }
+
+    public static CraftingHelper.ShapedPrimer getProspectingPickPrimer(ItemProspectingPick tool) {
+        Object ingot;
+        if(tool.getCraftingStack() == null) {
+            ingot = tool.getCraftingMaterial();
+        } else if(ItemHelper.stringHasMetaData(tool.getCraftingMaterial())) {
+            ingot = tool.getCraftingStack();
+        } else {
+            ingot = tool.getCraftingStack().getItem();
+        }
+        return CraftingHelper.parseShaped("II ", " RI", " R ", 'I', ingot, 'R', "stickWood");
     }
 
     private static ResourceLocation getNameForRecipe(ItemStack output) {

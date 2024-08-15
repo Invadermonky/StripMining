@@ -1,7 +1,7 @@
 {
     "name": "emerald",
     "displayName": "Emerald Carpenter Axe",
-    "craftingMaterial": "ingotEmerald",
+    "craftingMaterial": "gemEmerald",
     "breakarea": {
       "height": 3,
       "width": 3

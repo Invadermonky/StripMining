@@ -1,0 +1,21 @@
+{
+  "name": "steel",
+  "displayName": "Steel Prospecting Pick",
+  "craftingMaterial": "ingotSteel",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 150,
+    "green": 150,
+    "blue": 150
+  },
+  "harvestLevel": 3,
+  "durability": 1200,
+  "efficiency": 5.5,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 10,
+  "enchantable": true,
+  "repairable": true
+}

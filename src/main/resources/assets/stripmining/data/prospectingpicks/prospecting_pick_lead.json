@@ -1,0 +1,21 @@
+{
+  "name": "lead",
+  "displayName": "Lead Prospecting Pick",
+  "craftingMaterial": "ingotLead",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 94,
+    "green": 100,
+    "blue": 121
+  },
+  "harvestLevel": 1,
+  "durability": 100,
+  "efficiency": 4.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 9,
+  "enchantable": true,
+  "repairable": true
+}

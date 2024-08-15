@@ -8,7 +8,6 @@ public class CarpenterAxeStatsDefaults {
     public static final float DAMAGE = 9.0F;
     public static final int ENCHANTABILITY = 14;
     //Base Tool Defaults
-    public static final int TIER = 2;
     public static final float ATTACK_SPEED = -3.1F;
     public static final boolean ENCHANTABLE = true;
     public static final boolean REPAIRABLE = true;

@@ -1,0 +1,21 @@
+{
+  "name": "silver",
+  "displayName": "Silver Prospecting Pick",
+  "craftingMaterial": "ingotSilver",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 196,
+    "green": 206,
+    "blue": 215
+  },
+  "harvestLevel": 1,
+  "durability": 75,
+  "efficiency": 5.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 25,
+  "enchantable": true,
+  "repairable": true
+}

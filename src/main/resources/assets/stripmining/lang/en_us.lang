@@ -1,11 +1,21 @@
 #Localization for Strip Mining version 1.0.x
-#Items
+
+#Chat
+chat.stripmining:found_nothing=Found nothing of interest.
+chat.stripmining:found=Found:
+chat.stripmining:traces=Traces of %s
+chat.stripmining:small_sample=A small sample of %s
+chat.stripmining:medium_sample=A medium sample of %s
+chat.stripmining:large_sample=A large sample of %s
+chat.stripmining:motherload=The motherload of %s
+chat.stripmining:staged_ore=an Unknown Ore
 
 #Tooltips
 tooltip.stripmining:breakarea_carpenteraxe=Harvest Area: %s
 tooltip.stripmining:breakarea_excavator=Dig Area: %s
 tooltip.stripmining:breakarea_hammer=Mining Area: %s
+tooltip.stripmining:scanradius_pick=Scan Radius: %s
 
-tooltip.stripmining:breakarea=%dx%d
-tooltip.stripmining:breakarea_height=Height: %d
-tooltip.stripmining:breakarea_width=Width: %d
+tooltip.stripmining:area=%dx%d
+tooltip.stripmining:height=Height: %d
+tooltip.stripmining:width=Width: %d

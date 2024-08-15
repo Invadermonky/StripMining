@@ -1,6 +1,7 @@
 package com.invadermonky.stripmining.handlers;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.invadermonky.stripmining.item.stats.*;
 import com.invadermonky.stripmining.util.LogHelper;
@@ -163,6 +164,68 @@ public class JsonHandler {
         }
     }
 
+    public static ProspectingPickStats parseProspectingPickJson(String fileName, String fileContents) {
+        try {
+            LogHelper.userDebug("Parsing File: " + fileName);
+            jsonObject = new Gson().fromJson(fileContents, JsonObject.class);
+            ProspectingPickStats stats = new ProspectingPickStats();
+
+            //Reading required property "name"
+            stats.name = getStringProperty("name").toLowerCase().trim();
+            stats.unlocName = "prospecting_pick_" + stats.name;
+            LogHelper.userDebug("\tRegistry name set to: " + stats.unlocName);
+
+            //Reading optional property "displayName"
+            stats.displayNameRaw = getDisplayNameProperty();
+
+            //Reading requried property "craftingMaterial"
+            stats.craftingMaterial = getStringProperty("craftingMaterial");
+            LogHelper.userDebug("\tProperty \"craftingMaterial\" set to: " + stats.craftingMaterial);
+
+            //Reading required property "scanarea"
+            stats.scanRadius = getIntProperty("scanradius", ProspectingPickStatsDefaults.SCAN_RADIUS);
+
+            //Reading optional property "scanAbove"
+            stats.scanAbove = getBooleanProperty("scanAbove", ProspectingPickStatsDefaults.SCAN_ABOVE);
+
+            //Reading optional property "directional"
+            stats.directionalScan = getBooleanProperty("directional", ProspectingPickStatsDefaults.DIRECTIONAL_SCAN);
+
+            //Reading optional property "accuracy"
+            stats.accuracy = getFloatProperty("accuracy", ProspectingPickStatsDefaults.ACCURACY);
+
+            //Reading optional oreBlacklist
+            stats.setRawBlacklist(getStringArrayProperty("oreBlacklist"));
+
+            //Reading optional oreWhitelist
+            stats.setRawWhitelist(getStringArrayProperty("oreWhitelist"));
+
+            //Prospecting Picks only have one sprite option
+            stats.tier = 0;
+
+            //Reading required property "color"
+            stats.color = getBaseColorProperty();
+
+            stats.harvestLevel = getIntProperty("harvestLevel", ProspectingPickStatsDefaults.HARVEST_LEVEL);
+            stats.durability = getIntProperty("durability", ProspectingPickStatsDefaults.DURABILITY);
+            stats.efficiency = getFloatProperty("efficiency", ProspectingPickStatsDefaults.EFFICIENCY);
+            stats.damage = getFloatProperty("damage", ProspectingPickStatsDefaults.DAMAGE);
+            stats.attackspeed = getFloatProperty("attackspeed", ProspectingPickStatsDefaults.ATTACK_SPEED);
+            stats.enchantability = getIntProperty("enchantability", ProspectingPickStatsDefaults.ENCHANTABILITY);
+            stats.isEnchantable = getBooleanProperty("enchantable", ProspectingPickStatsDefaults.ENCHANTABLE);
+            stats.isRepairable = getBooleanProperty("repairable", ProspectingPickStatsDefaults.REPAIRABLE);
+
+            getTemplateColors(stats);
+
+            return stats;
+
+        } catch (Exception e) {
+            LogHelper.info("Error parsing file: " + fileName);
+            LogHelper.info(e);
+            return null;
+        }
+    }
+
 
     /**
      * Gets the override template colors from the json file. This is only called if the templateColor property exists.
@@ -205,6 +268,19 @@ public class JsonHandler {
             return  jsonObject.get(prop).getAsString();
         } else {
             throw new NullPointerException("Required Property \"" + prop + "\" not found.");
+        }
+    }
+
+    private static String[] getStringArrayProperty(String prop) {
+        if(jsonObject.has(prop)) {
+            JsonArray jsonArray = jsonObject.getAsJsonArray(prop);
+            String[] oreArray = new String[jsonArray.size()];
+            for(int i = 0; i < jsonArray.size(); i++) {
+                oreArray[i] = jsonArray.get(i).getAsString();
+            }
+            return oreArray;
+        } else {
+            return new String[0];
         }
     }
 
@@ -308,7 +384,7 @@ public class JsonHandler {
      *
      * @return An integer array relating to the break area tool setting. Returned format is {height, width}
      */
-    private static int[] getBreakAreaProperty() throws Exception, NullPointerException {
+    private static int[] getBreakAreaProperty() throws Exception {
         if(jsonObject.has("breakarea")) {
             int height, width;
 
@@ -341,8 +417,6 @@ public class JsonHandler {
 
     /**
      * Gets the "color" property from the tool config json.
-     *
-     * @return The base tool color
      */
     private static Color getBaseColorProperty() throws NullPointerException, IllegalArgumentException {
         if(jsonObject.has("color")) {

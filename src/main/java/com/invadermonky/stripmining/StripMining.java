@@ -1,6 +1,7 @@
 package com.invadermonky.stripmining;
 
 import com.invadermonky.stripmining.handlers.ConfigHandler;
+import com.invadermonky.stripmining.handlers.NetworkHandler;
 import com.invadermonky.stripmining.proxy.CommonProxy;
 import com.invadermonky.stripmining.util.LogHelper;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class StripMining {
     public static final String MOD_ID = "stripmining";
     public static final String MOD_NAME = "Strip Mining";
-    public static final String MOD_VERSION = "1.0.0";
+    public static final String MOD_VERSION = "1.1.0";
     public static final String MC_VERSION = "[1.12.2]";
 
     public static final String ProxyClientClass = "com.invadermonky.stripmining.proxy.ClientProxy";
@@ -41,6 +42,7 @@ public class StripMining {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
+        NetworkHandler.init();
         LogHelper.debug("Finished init phase.");
     }
 

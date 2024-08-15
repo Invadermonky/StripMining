@@ -1,0 +1,21 @@
+{
+  "name": "constantan",
+  "displayName": "Constantan Prospecting Pick",
+  "craftingMaterial": "ingotConstantan",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 240,
+    "green": 129,
+    "blue": 106
+  },
+  "harvestLevel": 2,
+  "durability": 225,
+  "efficiency": 4.4,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 12,
+  "enchantable": true,
+  "repairable": true
+}

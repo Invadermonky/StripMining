@@ -1,0 +1,21 @@
+{
+  "name": "brass",
+  "displayName": "Brass Prospecting Pick",
+  "craftingMaterial": "ingotBrass",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 225,
+    "green": 188,
+    "blue": 128
+  },
+  "harvestLevel": 2,
+  "durability": 400,
+  "efficiency": 4.8,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 14,
+  "enchantable": true,
+  "repairable": true
+}

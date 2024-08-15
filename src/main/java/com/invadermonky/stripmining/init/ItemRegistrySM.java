@@ -6,9 +6,11 @@ import com.invadermonky.stripmining.handlers.JsonHandler;
 import com.invadermonky.stripmining.item.stats.CarpenterAxeStats;
 import com.invadermonky.stripmining.item.stats.ExcavatorStats;
 import com.invadermonky.stripmining.item.stats.HammerStats;
+import com.invadermonky.stripmining.item.stats.ProspectingPickStats;
 import com.invadermonky.stripmining.item.tools.ItemCarpenterAxe;
 import com.invadermonky.stripmining.item.tools.ItemExcavator;
 import com.invadermonky.stripmining.item.tools.ItemHammer;
+import com.invadermonky.stripmining.item.tools.ItemProspectingPick;
 import com.invadermonky.stripmining.util.LogHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemTool;
@@ -65,6 +67,18 @@ public class ItemRegistrySM {
             });
         }
 
+        if(ConfigHandler.enableProspectingPicks) {
+            LogHelper.userDebug("Regrieving Carpenter Axe config files.");
+            HashMap<String, String> prospectingPIckConfigs = FileHandler.getToolConfigs("prospectingpicks");
+            prospectingPIckConfigs.forEach((fileName, fileContents) -> {
+                ProspectingPickStats prospectingPickStats = JsonHandler.parseProspectingPickJson(fileName, fileContents);
+                if(prospectingPickStats != null) {
+                    ItemProspectingPick itemProspectingPick = new ItemProspectingPick(prospectingPickStats);
+                    addToolToRegister(itemProspectingPick);
+                }
+            });
+        }
+
         tools.sort(Comparator.comparing(t -> t.getRegistryName().getPath()));
 
         for(Item tool : tools) {
@@ -75,7 +89,16 @@ public class ItemRegistrySM {
     }
 
     public static void addToolToRegister(ItemTool tool) {
-        if(tool != null)
-            tools.add(tool);
+        if(tool != null) {
+            boolean toAdd = true;
+            for(ItemTool checkTool : tools) {
+                if(tool.getRegistryName().toString().equals(checkTool.getRegistryName().toString())) {
+                    toAdd = false;
+                    LogHelper.error("Error registering tool, identical item Id found: " + tool.getRegistryName().toString());
+                }
+            }
+            if(toAdd)
+                tools.add(tool);
+        }
     }
 }

@@ -35,12 +35,12 @@ public class BreakHandler {
      * @return If true, the block can and will be harvested with appropriate XP.
      */
     public static boolean harvestBlock(ItemTool tool, World world, BlockPos pos, EntityPlayer player) {
-        if(world.isAirBlock(pos)) {
+        if (world.isAirBlock(pos)) {
             return false;
         }
 
         //Check to ensure the tool is a Strip Mining tool.
-        if(!(tool instanceof IItemToolSM))
+        if (!(tool instanceof IItemToolSM))
             return false;
 
         IItemToolSM toolSM = (IItemToolSM) tool;
@@ -48,37 +48,38 @@ public class BreakHandler {
         IBlockState state = world.getBlockState(pos);
         Block block = state.getBlock();
 
-        if(!(toolSM.getToolClasses().contains(block.getHarvestTool(state)) || tool.canHarvestBlock(state, player.getHeldItemMainhand()))) {
+        if (!(toolSM.getToolClasses().contains(block.getHarvestTool(state)) || tool.canHarvestBlock(state, player.getHeldItemMainhand()))) {
             return false;
         }
 
-        if(!ForgeHooks.canHarvestBlock(block, player, world, pos)) {
+        if (!ForgeHooks.canHarvestBlock(block, player, world, pos)) {
             return false;
         }
 
         int xpToDrop = 0;
-        if(playerMP != null) {
+        if (playerMP != null) {
             xpToDrop = ForgeHooks.onBlockBreakEvent(world, playerMP.interactionManager.getGameType(), playerMP, pos);
-            if(xpToDrop == -1) {
+            if (xpToDrop == -1) {
                 return false;
             }
+            playerMP.connection.sendPacket(new SPacketBlockChange(world, pos));
         }
 
-        if(!world.isRemote) {
-            if(block.removedByPlayer(state, world, pos, player, !player.capabilities.isCreativeMode)) {
+        if (!world.isRemote) {
+            if (block.removedByPlayer(state, world, pos, player, !player.capabilities.isCreativeMode)) {
                 block.onPlayerDestroy(world, pos, state);
-                if(!player.capabilities.isCreativeMode) {
+                if (!player.capabilities.isCreativeMode) {
                     block.harvestBlock(world, player, pos, state, world.getTileEntity(pos), player.getHeldItemMainhand());
-                    if(xpToDrop > 0)
+                    if (xpToDrop > 0)
                         block.dropXpOnBlockBreak(world, pos, xpToDrop);
                 }
             }
-            playerMP.connection.sendPacket(new SPacketBlockChange(world, pos));
         } else {
-            if(block.removedByPlayer(state, world, pos, player, !player.capabilities.isCreativeMode)) {
+            if (block.removedByPlayer(state, world, pos, player, !player.capabilities.isCreativeMode)) {
                 block.onPlayerDestroy(world, pos, state);
             }
-            Minecraft.getMinecraft().getConnection().sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, pos, Minecraft.getMinecraft().objectMouseOver.sideHit));
+            if(Minecraft.getMinecraft().getConnection() != null)
+                Minecraft.getMinecraft().getConnection().sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, pos, Minecraft.getMinecraft().objectMouseOver.sideHit));
         }
         return true;
     }
@@ -118,27 +119,27 @@ public class BreakHandler {
 
                 if(Double.compare(Math.abs(look.x), Math.abs(look.z)) >= 0) {
                     if(Double.compare(look.x, 0.0D) >= 0) {
-                        north = (int) Math.ceil((double) (width - 1) / 2);;
-                        south = (int) Math.floor((double) (width - 1) / 2);;
+                        north = (int) Math.ceil((double) (width - 1) / 2);
+                        south = (int) Math.floor((double) (width - 1) / 2);
                         east = (int) Math.ceil((double) (height - 1) / 2);
                         west = (int) Math.floor((double) (height - 1) / 2);
                     } else {
-                        north = (int) Math.floor((double) (width - 1) / 2);;
-                        south = (int) Math.ceil((double) (width - 1) / 2);;
-                        east = (int) Math.floor((double) (height - 1) / 2);;
-                        west = (int) Math.ceil((double) (height - 1) / 2);;
+                        north = (int) Math.floor((double) (width - 1) / 2);
+                        south = (int) Math.ceil((double) (width - 1) / 2);
+                        east = (int) Math.floor((double) (height - 1) / 2);
+                        west = (int) Math.ceil((double) (height - 1) / 2);
                     }
                 } else {
                     if(Double.compare(look.z, 0.0D) >= 0) {
-                        north = (int) Math.ceil((double) (height - 1) / 2);;
-                        south = (int) Math.floor((double) (height - 1) / 2);;
-                        east = (int) Math.floor((double) (width - 1) / 2);;
-                        west = (int) Math.ceil((double) (width - 1) / 2);;
+                        north = (int) Math.ceil((double) (height - 1) / 2);
+                        south = (int) Math.floor((double) (height - 1) / 2);
+                        east = (int) Math.floor((double) (width - 1) / 2);
+                        west = (int) Math.ceil((double) (width - 1) / 2);
                     } else {
-                        north = (int) Math.floor((double) (height - 1) / 2);;
-                        south = (int) Math.ceil((double) (height - 1) / 2);;
-                        east = (int) Math.ceil((double) (width - 1) / 2);;
-                        west = (int) Math.floor((double) (width - 1) / 2);;
+                        north = (int) Math.floor((double) (height - 1) / 2);
+                        south = (int) Math.ceil((double) (height - 1) / 2);
+                        east = (int) Math.ceil((double) (width - 1) / 2);
+                        west = (int) Math.floor((double) (width - 1) / 2);
                     }
                 }
 

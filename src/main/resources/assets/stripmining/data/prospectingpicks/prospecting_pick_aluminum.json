@@ -1,0 +1,21 @@
+{
+  "name": "aluminum",
+  "displayName": "Aluminum Prospecting Pick",
+  "craftingMaterial": "ingotAluminum",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 235,
+    "green": 152,
+    "blue": 134
+  },
+  "harvestLevel": 1,
+  "durability": 125,
+  "efficiency": 9.0,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 14,
+  "enchantable": true,
+  "repairable": true
+}

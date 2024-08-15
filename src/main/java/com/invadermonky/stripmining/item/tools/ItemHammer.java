@@ -106,10 +106,10 @@ public class ItemHammer extends ItemPickaxe implements IItemToolSM, IAreaBrealTo
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flagIn) {
         if(GuiScreen.isShiftKeyDown()) {
             tooltip.add(I18n.format("tooltip.stripmining:breakarea_hammer", ""));
-            tooltip.add(" " + I18n.format("tooltip.stripmining:breakarea_height", this.stats.breakareaHeight));
-            tooltip.add(" " + I18n.format("tooltip.stripmining:breakarea_width", this.stats.breakareaWidth));
+            tooltip.add(" " + I18n.format("tooltip.stripmining:height", this.height));
+            tooltip.add(" " + I18n.format("tooltip.stripmining:width", this.width));
         } else {
-            tooltip.add(I18n.format("tooltip.stripmining:breakarea_hammer", I18n.format("tooltip.stripmining:breakarea", this.height, this.width)));
+            tooltip.add(I18n.format("tooltip.stripmining:breakarea_hammer", I18n.format("tooltip.stripmining:area", this.height, this.width)));
         }
     }
 

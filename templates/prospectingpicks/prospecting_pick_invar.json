@@ -1,0 +1,21 @@
+{
+  "name": "invar",
+  "displayName": "Invar Prospecting Pick",
+  "craftingMaterial": "ingotInvar",
+  "scanradius": 6,
+  "oreBlacklist": [],
+  "oreWhitelist": [],
+  "color": {
+    "red": 188,
+    "green": 196,
+    "blue": 186
+  },
+  "harvestLevel": 2,
+  "durability": 425,
+  "efficiency": 4.8,
+  "damage": 3.0,
+  "attackspeed": -2.7,
+  "enchantability": 12,
+  "enchantable": true,
+  "repairable": true
+}
