@@ -14,7 +14,10 @@ chat.stripmining:staged_ore=an Unknown Ore
 tooltip.stripmining:breakarea_carpenteraxe=Harvest Area: %s
 tooltip.stripmining:breakarea_excavator=Dig Area: %s
 tooltip.stripmining:breakarea_hammer=Mining Area: %s
-tooltip.stripmining:scanradius_pick=Scan Radius: %s
+tooltip.stripmining:scanradius=Scan Radius: %s
+tooltip.stripmining:accuracy=Accuracy: %d%%
+tooltip.stripmining:scan_directional=Scans directionally
+tooltip.stripmining:scan_full=Scans all nearby rocks
 
 tooltip.stripmining:area=%dx%d
 tooltip.stripmining:height=Height: %d

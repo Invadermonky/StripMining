@@ -15,6 +15,7 @@ import gnu.trove.set.hash.TLinkedHashSet;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -132,9 +133,10 @@ public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
         int y1 = facing == EnumFacing.DOWN && stats.directionalScan ? -1 : -stats.scanRadius;
         int z1 = facing == EnumFacing.NORTH && stats.directionalScan ? -1 : -stats.scanRadius;
         int x2 = facing == EnumFacing.EAST && stats.directionalScan ? 1 : stats.scanRadius;
-        int y2 = (facing == EnumFacing.UP && stats.directionalScan) || (facing != EnumFacing.DOWN && !stats.scanAbove) ? 1 : stats.scanRadius;
+        int y2 = facing == EnumFacing.UP && stats.directionalScan ? 1 : stats.scanRadius;
         int z2 = facing == EnumFacing.SOUTH && stats.directionalScan ? 1 : stats.scanRadius;
 
+        int blockCount = 0;
         BlockPos start = pos.add(x1, y1, z1);
         BlockPos stop = pos.add(x2, y2, z2);
         for (BlockPos checkPos : BlockPos.getAllInBox(start, stop)) {
@@ -143,6 +145,7 @@ public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
             if (world.isAirBlock(checkPos))
                 continue;
 
+            blockCount++;
             //Skipping block if accuracy ignores it.
             if (stats.accuracy < 1.0f && world.rand.nextFloat() > stats.accuracy)
                 continue;
@@ -166,13 +169,13 @@ public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
 
             int count = entry.getValue();
             String m = "chat.stripmining:";
-            if (count <= ConfigHandler.veinTrace) {
+            if ((count / blockCount) <= ConfigHandler.veinTrace) {
                 m += "traces";
-            } else if (count <= ConfigHandler.veinSmall) {
+            } else if ((count / blockCount) <= ConfigHandler.veinSmall) {
                 m += "small_sample";
-            } else if (count <= ConfigHandler.veinMedium) {
+            } else if ((count / blockCount) <= ConfigHandler.veinMedium) {
                 m += "medium_sample";
-            } else if (count <= ConfigHandler.veinLarge) {
+            } else if ((count / blockCount) <= ConfigHandler.veinLarge) {
                 m += "large_sample";
             } else {
                 m += "motherload";
@@ -196,7 +199,14 @@ public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(I18n.format("tooltip.stripmining:scanradius_pick", this.stats.scanRadius));
+        tooltip.add(I18n.format("tooltip.stripmining:scanradius", this.stats.scanRadius));
+        if(GuiScreen.isShiftKeyDown()) {
+            tooltip.add("  " + I18n.format("tooltip.stripmining:accuracy", (int) (this.stats.accuracy * 100)));
+            if(this.stats.directionalScan)
+                tooltip.add("  " + I18n.format("tooltip.stripmining:scan_directional"));
+            else
+                tooltip.add("  " + I18n.format("tooltip.stripmining:scan_full"));
+        }
     }
 
 

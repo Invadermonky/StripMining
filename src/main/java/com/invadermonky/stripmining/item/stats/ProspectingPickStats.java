@@ -16,7 +16,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class ProspectingPickStats extends ToolStatsBase {
     public int scanRadius;
     public boolean directionalScan;
-    public boolean scanAbove;
     public float accuracy;
     private String[] rawBlacklist;
     private String[] rawWhitelist;

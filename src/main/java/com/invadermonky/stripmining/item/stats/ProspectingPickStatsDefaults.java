@@ -4,7 +4,6 @@ public class ProspectingPickStatsDefaults {
     //Prospecting Pick Defaults
     public static final int SCAN_RADIUS = 6;
     public static final boolean DIRECTIONAL_SCAN = true;
-    public static final boolean SCAN_ABOVE = false;
     public static final float ACCURACY = 1.0F;
     //Tool Material Defaults
     public static final int HARVEST_LEVEL = 2;

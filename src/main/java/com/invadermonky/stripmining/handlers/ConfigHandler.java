@@ -52,10 +52,10 @@ public class ConfigHandler {
         enableProspectingSound = config.getBoolean("enableProspectingSound", CATEGORY_PROSPECTING, enableProspectingSound, "Enables the sound effect when prospecting.");
         oreBlacklist = config.getStringList("oreBlacklist", CATEGORY_PROSPECTING, oreBlacklist, "Blacklisted ores that will not be detected by Prospecting Picks. Additional ores can be blacklisted on a per-tool basis using the individual tool json.\nFormat:\n\tore=oreIron\n\ttype=ore\n\tblock=minecraft:iron_ore\n\tblock=minecraft:iron_ore:0\n");
         oreWhitelist = config.getStringList("oreWhitelist", CATEGORY_PROSPECTING, oreWhitelist, "Additional ores that will be detected by Prospecting Picks. Additional ores can be whitelisted on a per-tool basis using the individual tool json.\nFormat:\n\tore=oreIron\n\ttype=ore\n\tblock=minecraft:iron_ore\n\tblock=minecraft:iron_ore:0\n");
-        veinTrace = config.getInt("veinTrace", CATEGORY_PROSPECTING, veinTrace, 1, 100, "The maximum number of ore blocks that can qualify as a trace amount.");
-        veinSmall = config.getInt("veinSmall", CATEGORY_PROSPECTING, veinSmall, 1, 100, "The maximum number of ore blocks that can qualify as a small sample.");
-        veinMedium = config.getInt("veinMedium", CATEGORY_PROSPECTING, veinMedium, 1, 100, "The maximum number of ore blocks that can qualify as a medium sample.");
-        veinLarge = config.getInt("veinLarge", CATEGORY_PROSPECTING, veinLarge, 1, 100, "The maximum number of ore blocks that can qualify as a large sample.");
+        veinTrace = config.getInt("veinTrace", CATEGORY_PROSPECTING, veinTrace, 1, 100, "The maximum number of ore blocks (as a percentage of nearby stone) that can qualify as a trace amount.");
+        veinSmall = config.getInt("veinSmall", CATEGORY_PROSPECTING, veinSmall, 1, 100, "The maximum number of ore blocks (as a percentage of nearby stone) that can qualify as a small sample.");
+        veinMedium = config.getInt("veinMedium", CATEGORY_PROSPECTING, veinMedium, 1, 100, "The maximum number of ore blocks (as a percentage of nearby stone) that can qualify as a medium sample.");
+        veinLarge = config.getInt("veinLarge", CATEGORY_PROSPECTING, veinLarge, 1, 100, "The maximum number of ore blocks (as a percentage of nearby stone) that can qualify as a large sample.");
 
         if (loadDefaults) {
             loadDefaultExcavators();

@@ -185,9 +185,6 @@ public class JsonHandler {
             //Reading required property "scanarea"
             stats.scanRadius = getIntProperty("scanradius", ProspectingPickStatsDefaults.SCAN_RADIUS);
 
-            //Reading optional property "scanAbove"
-            stats.scanAbove = getBooleanProperty("scanAbove", ProspectingPickStatsDefaults.SCAN_ABOVE);
-
             //Reading optional property "directional"
             stats.directionalScan = getBooleanProperty("directional", ProspectingPickStatsDefaults.DIRECTIONAL_SCAN);
 
