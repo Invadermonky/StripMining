@@ -1,0 +1,23 @@
+{
+  "name": "thaumium",
+  "displayName": "Thaumium Excavator",
+  "craftingMaterial": "ingotThaumium",
+  "breakarea": {
+    "height": 3,
+    "width": 3
+  },
+  "color": {
+    "red": 81,
+    "green": 67,
+    "blue": 124
+  },
+  "tier": 3,
+  "harvestLevel": 3,
+  "durability": 500,
+  "efficiency": 7.0,
+  "damage": 6.0,
+  "attackspeed": -3.1,
+  "enchantability": 22,
+  "enchantable": true,
+  "repairable": true
+}
