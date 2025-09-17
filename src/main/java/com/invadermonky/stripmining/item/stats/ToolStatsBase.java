@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.EnumHelper;
 
 import java.awt.*;
 
-public class ToolStatsBase {
+public abstract class ToolStatsBase {
 
     /** The unique tool name. Used internally to generate the tool registry name. */
     public String name;

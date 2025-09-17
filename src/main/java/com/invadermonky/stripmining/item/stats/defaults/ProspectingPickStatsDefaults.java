@@ -1,4 +1,4 @@
-package com.invadermonky.stripmining.item.stats;
+package com.invadermonky.stripmining.item.stats.defaults;
 
 public class ProspectingPickStatsDefaults {
     //Prospecting Pick Defaults

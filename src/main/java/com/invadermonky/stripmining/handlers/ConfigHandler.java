@@ -28,10 +28,10 @@ public class ConfigHandler {
     public static boolean enableProspectingSound = true;
     public static String[] oreBlacklist = new String[] {};
     public static String[] oreWhitelist = new String[] {"type=ore"};
-    public static int veinTrace = 2;
-    public static int veinSmall = 6;
-    public static int veinMedium = 10;
-    public static int veinLarge = 16;
+    public static int veinTrace = 4;
+    public static int veinSmall = 10;
+    public static int veinMedium = 16;
+    public static int veinLarge = 24;
 
     public static void preInit() {
         File configFile = new File(Paths.get(Loader.instance().getConfigDir().toString(), StripMining.MOD_ID, StripMining.MOD_ID + ".cfg").toString());

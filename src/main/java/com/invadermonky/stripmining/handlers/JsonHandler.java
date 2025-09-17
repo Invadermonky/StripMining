@@ -4,6 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.invadermonky.stripmining.item.stats.*;
+import com.invadermonky.stripmining.item.stats.defaults.CarpenterAxeStatsDefaults;
+import com.invadermonky.stripmining.item.stats.defaults.ExcavatorStatsDefaults;
+import com.invadermonky.stripmining.item.stats.defaults.HammerStatsDefaults;
+import com.invadermonky.stripmining.item.stats.defaults.ProspectingPickStatsDefaults;
 import com.invadermonky.stripmining.util.LogHelper;
 import com.invadermonky.stripmining.util.SpriteHelper;
 

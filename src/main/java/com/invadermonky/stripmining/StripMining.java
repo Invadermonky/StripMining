@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class StripMining {
     public static final String MOD_ID = "stripmining";
     public static final String MOD_NAME = "Strip Mining";
-    public static final String MOD_VERSION = "1.1.0";
+    public static final String MOD_VERSION = "1.1.1";
     public static final String MC_VERSION = "[1.12.2]";
 
     public static final String ProxyClientClass = "com.invadermonky.stripmining.proxy.ClientProxy";

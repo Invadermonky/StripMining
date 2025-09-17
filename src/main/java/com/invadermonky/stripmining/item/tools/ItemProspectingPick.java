@@ -169,13 +169,13 @@ public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
 
             int count = entry.getValue();
             String m = "chat.stripmining:";
-            if ((count / blockCount) <= ConfigHandler.veinTrace) {
+            if (count <= ConfigHandler.veinTrace) {
                 m += "traces";
-            } else if ((count / blockCount) <= ConfigHandler.veinSmall) {
+            } else if (count <= ConfigHandler.veinSmall) {
                 m += "small_sample";
-            } else if ((count / blockCount) <= ConfigHandler.veinMedium) {
+            } else if (count <= ConfigHandler.veinMedium) {
                 m += "medium_sample";
-            } else if ((count / blockCount) <= ConfigHandler.veinLarge) {
+            } else if (count <= ConfigHandler.veinLarge) {
                 m += "large_sample";
             } else {
                 m += "motherload";
