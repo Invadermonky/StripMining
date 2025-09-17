@@ -38,10 +38,15 @@ public class FileHandler {
             }
 
             @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                Files.copy(file, target.resolve(jarPath.relativize(file).toString()), StandardCopyOption.REPLACE_EXISTING);
-                return FileVisitResult.CONTINUE;
-            }
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    // Accept *.json by extension (case-insensitive). Do NOT use Files.probeContentType(...)
+                    final String name = file.getFileName().toString();
+                    if (name.toLowerCase(java.util.Locale.ROOT).endsWith(".json")) {
+                        // Keep the existing reader logic you already have:
+                        fileContents.put(name, getFileContents(file));
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
         });
 
         fileSystem.close();
