@@ -66,10 +66,10 @@ public class ModelRegistrySM {
     }
 
     public static void registerItemRender(Item item) {
-        if(item == null)
-            return;
-        LogHelper.debug("Registering model for item: " + item.getRegistryName().toString());
-        ModelResourceLocation loc = new ModelResourceLocation(StringHelper.stripUnlocalizedName(item.getTranslationKey()), "inventory");
-        ModelLoader.setCustomModelResourceLocation(item, 0, loc);
+        if (item != null) {
+            LogHelper.debug("Registering model for item: " + item.getRegistryName().toString());
+            ModelResourceLocation loc = new ModelResourceLocation(item.getRegistryName().toString(), "inventory");
+            ModelLoader.setCustomModelResourceLocation(item, 0, loc);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class TextureRegistrySM {
     @SubscribeEvent
     public static void registerTextures(TextureStitchEvent.Pre event) {
         for(ItemTool tool : ItemRegistrySM.tools) {
-            if(tool instanceof IItemToolSM) {
+            if(tool instanceof IItemToolSM && ((IItemToolSM) tool).getToolBaseStats().tier > 0) {
                 ResourceLocation spriteLoc = new ResourceLocation(StripMining.MOD_ID, "items/" + tool.getRegistryName().getPath());
                 ToolSpriteSM toolSprite = new ToolSpriteSM(spriteLoc.toString(), tool);
                 event.getMap().setTextureEntry(toolSprite);
