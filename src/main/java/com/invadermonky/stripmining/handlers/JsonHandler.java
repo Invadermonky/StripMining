@@ -10,6 +10,7 @@ import com.invadermonky.stripmining.item.stats.defaults.HammerStatsDefaults;
 import com.invadermonky.stripmining.item.stats.defaults.ProspectingPickStatsDefaults;
 import com.invadermonky.stripmining.util.LogHelper;
 import com.invadermonky.stripmining.util.SpriteHelper;
+import net.minecraft.util.math.MathHelper;
 
 import java.awt.*;
 import java.nio.charset.StandardCharsets;
@@ -143,7 +144,7 @@ public class JsonHandler {
             stats.breakareaWidth = breakarea[1];
 
             //Carpenter Axes only have one sprite option
-            stats.tier = 0;
+            stats.tier = MathHelper.clamp(getTierProperty(), 0, 1);
 
             //Reading required property "color"
             stats.color = getBaseColorProperty();
@@ -202,7 +203,7 @@ public class JsonHandler {
             stats.setRawWhitelist(getStringArrayProperty("oreWhitelist"));
 
             //Prospecting Picks only have one sprite option
-            stats.tier = 0;
+            stats.tier = MathHelper.clamp(getTierProperty(), 0, 1);
 
             //Reading required property "color"
             stats.color = getBaseColorProperty();
@@ -362,14 +363,14 @@ public class JsonHandler {
     /**
      * Gets the tier property from the tool config json and checks whether it is a valid value.
      *
-     * @return Integer value of 1, 2 or 3
+     * @return Integer value of 0, 1, 2 or 3
      */
     private static int getTierProperty() throws NullPointerException, IllegalArgumentException {
         int tier = 2;
         if(jsonObject.has("tier")) {
             tier = jsonObject.get("tier").getAsInt();
 
-            if(tier < 1 || tier > 3)
+            if(tier < 0 || tier > 3)
                 throw new IllegalArgumentException("\tProperty \"tier\" value invalid. Accepted values are 1, 2 or 3.");
 
             LogHelper.userDebug("\tProperty \"tier\" set to: " + tier);

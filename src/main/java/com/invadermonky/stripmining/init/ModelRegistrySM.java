@@ -42,19 +42,22 @@ public class ModelRegistrySM {
 
             for(ItemTool tool : ItemRegistrySM.tools) {
                 LogHelper.debug("Registry Name: " + tool.getRegistryName().toString());
-                ResourceLocation toolColor = new ResourceLocation(StripMining.MOD_ID, "items/" + tool.getRegistryName().getPath());
-                ResourceLocation toolOverlay = new ResourceLocation(StripMining.MOD_ID, "items/" + SpriteHelper.getOverlaySpriteName(tool, ((IItemToolSM) tool).getToolBaseStats().tier));
+                int tier = ((IItemToolSM) tool).getToolBaseStats().tier;
+                if(tier > 0) {
+                    ResourceLocation toolColor = new ResourceLocation(StripMining.MOD_ID, "items/" + tool.getRegistryName().getPath());
+                    ResourceLocation toolOverlay = new ResourceLocation(StripMining.MOD_ID, "items/" + SpriteHelper.getOverlaySpriteName(tool, tier));
 
-                IModel retexturedModel = baseModel.retexture(
-                        ImmutableMap.of(
-                                "layer0", toolColor.toString(),
-                                "layer1", toolOverlay.toString()
-                        )
-                );
+                    IModel retexturedModel = baseModel.retexture(
+                            ImmutableMap.of(
+                                    "layer0", toolColor.toString(),
+                                    "layer1", toolOverlay.toString()
+                            )
+                    );
 
-                IBakedModel bakedModel = retexturedModel.bake(ModelRotation.X0_Y0, DefaultVertexFormats.ITEM, ModelLoader.defaultTextureGetter());
-                ModelResourceLocation bakedModelLocation = new ModelResourceLocation(tool.delegate.name(), "inventory");
-                event.getModelRegistry().putObject(bakedModelLocation, bakedModel);
+                    IBakedModel bakedModel = retexturedModel.bake(ModelRotation.X0_Y0, DefaultVertexFormats.ITEM, ModelLoader.defaultTextureGetter());
+                    ModelResourceLocation bakedModelLocation = new ModelResourceLocation(tool.delegate.name(), "inventory");
+                    event.getModelRegistry().putObject(bakedModelLocation, bakedModel);
+                }
             }
             LogHelper.debug("Finished baking models.");
         } catch (Exception e) {

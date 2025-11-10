@@ -1,4 +1,9 @@
 # StripMining Changelog
+## Version 1.12.2-1.1.2
+- Added new tool tier option to use custom models
+
+---
+
 ## Version 1.12.2-1.1.1
 - Fixed file discovery issue on Linux clients (courtesy of DaytripperTX)
 - Fixed Prospecting Picks only returning "Traces of..." when detecting ores

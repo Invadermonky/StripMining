@@ -36,8 +36,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.awt.*;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 
 public class ItemProspectingPick extends ItemPickaxe implements IItemToolSM {
     protected TLinkedHashSet<String> toolClasses = new TLinkedHashSet<>();
